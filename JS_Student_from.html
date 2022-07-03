@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Student Form Validation</title>
+		<style type="text/css">
+			.error {
+				color:  red;
+			}
+		</style>
+	
+</head>
+<body>
+	<form method = "post" name = "Student_form" onsubmit="return validateForm()">
+		<table>
+			<tr>
+				<td><label>Roll Number</label></td>
+				<td><input type="numeric" name="roll_no" id="roll_no" placeholder="Your Roll Number"></td><br>
+			</tr>
+			<tr>
+				<td><label>Name</label></td>
+				<td><input type="text" name="sname" id="sname" placeholder="Your name"></td><br>
+			</tr>
+			<tr>
+			<td><label>Course</label></td>
+				<td><input type="text" name="course" id="course" placeholder="Your course"></td><br>
+			</tr>
+			<tr>
+			<td><label>Semester</label></td>
+				<td><select name = "semester" id="semester">
+						<option value = "semester">Semester</option>
+						<option value = "1"> 1st sem</option>
+						<option value = "2"> 2nd sem</option>
+						<option value = "3"> 3rd sem</option>
+						<option value = "4"> 4th sem</option>
+						<option value = "5"> 5th sem</option>
+						<option value = "6"> 6th sem</option>
+					</select><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="Submit">
+					<input type="reset" value="Clear">
+				</td>
+			</tr>
+
+		</table>
+	</form>
+
+	<p id="errormsg" class="error"></p>
+
+	<script type="text/javascript">
+		function validateForm(){
+			var rollno = document.getElementById("roll_no").value;
+			var sname = document.getElementById("sname").value;
+			var course = document.getElementById("course").value;
+			var sem = document.getElementById("semester").value;
+
+			if(rollno.length==0){
+				
+				document.getElementById("errormsg").innerHTML="Roll number can not be empty.";
+
+				return false;
+			}
+
+			if(sname.length == 0) {
+				
+				document.getElementById("errormsg").innerHTML="Name	can not be empty.";
+
+				return false;
+			}
+
+			if(course.length == 0) {
+				
+				document.getElementById("errormsg").innerHTML="Course can not be empty.";
+
+				return false;
+			}
+
+			if(semester.length == 0) {
+				
+				document.getElementById("errormsg").innerHTML="Semester can not be empty.";
+
+				return false;
+			}
+
+		}
+	</script>
+</body>
+</html>
